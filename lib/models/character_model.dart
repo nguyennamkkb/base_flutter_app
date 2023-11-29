@@ -1,8 +1,8 @@
 import 'package:flutter_base_bloc_app/models/info_model.dart';
 
 class Character {
-  final Info info;
-  final List<Results> results;
+  Info info;
+  List<Results> results;
   Character({required this.info, required this.results});
   factory Character.fromJson(Map<String, dynamic> json) => Character(
         info: Info.fromJson(json["info"]),

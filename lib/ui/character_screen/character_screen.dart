@@ -20,305 +20,73 @@ class _CharacterScreenState extends State<CharacterScreen> {
   void initState() {
     super.initState();
     // Đặt trạng thái loading là true
+    print("init");
     setState(() {
       isLoading = true;
     });
     // Gọi hàm fetchUsers và nhận kết quả
     service.getCharacters().then((result) {
-      // Đặt trạng thái loading là false và cập nhật danh sách User
+      print("getCharacters");
       setState(() {
         isLoading = false;
         character = result;
+        print("thanh cong");
       });
     });
   }
+
   @override
   Widget build(BuildContext context) {
     double width = MediaQuery.of(context).size.width;
-    double height = MediaQuery.of(context).size.height;
 
     if (isLoading) {
-      return Center(
+      return const Center(
         child: CircularProgressIndicator(),
       );
-    }else {
+    } else {
       return SafeArea(
-
         child: Scaffold(
           body: Container(
-            padding: EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 5),
-            child: SingleChildScrollView(
-              child: Wrap(
-                spacing: 16.0, // gap between adjacent chips
-                runSpacing: 16.0, // gap between lines
-                children: [
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                  Container(
-                    color: Colors.black12,
-                    width: width / 2 - 23,
-                    height: 200,
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Image.network(
-                          'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-                          width: width / 2 - 23,
-                          height: 150,
-                          fit: BoxFit.fill,
-                        ),
-                        Padding(
-                          padding: EdgeInsets.only(top: 5, left: 10, right: 10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text("Rick Sanchez"),
-                              Text("Status Alive ss"),
-                            ],
-                          ),
-                        )
-                      ],
-                    ),
-                  ),
-                ],
+            padding: const EdgeInsets.only(top: 10, left: 15, right: 15, bottom: 5),
+            child: GridView.builder(
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16.0,
+                mainAxisSpacing: 16.0,
+                childAspectRatio: (width / 2 - 23) / 220,
               ),
+              itemCount: character.results.length,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                  color: Colors.black12,
+
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image.network(
+                        character.results[index].image,
+                        width: width / 2 - 23,
+                        height: 150,
+                        fit: BoxFit.fill,
+                      ),
+                      Padding(
+                        padding: EdgeInsets.only(top: 5, left: 10, right: 10),
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(character.results[index].name),
+                            Text("Status ${character.results[index].status}"),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                );
+              },
             ),
           ),
         ),
       );
     }
-
   }
 }

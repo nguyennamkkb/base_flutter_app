@@ -40,6 +40,21 @@ class CharacterService {
       rethrow;
     }
   }
+  Future<Character> getCharactersNext(String param) async {
+    try {
+
+      Response response = await api.get(param);
+      Map<String, dynamic> jsonData = response.data;
+      Character res = Character.fromJson(jsonData);
+      return res;
+    } catch (e) {
+      // Bắt các ngoại lệ có thể xảy ra và ném lại
+      if (kDebugMode) {
+        print(e);
+      }
+      rethrow;
+    }
+  }
 
   // // Phương thức để thêm một User mới vào api
   // Future<User> addUser(User user) async {
