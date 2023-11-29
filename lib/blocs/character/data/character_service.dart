@@ -1,9 +1,6 @@
-import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_base_bloc_app/models/base_response.dart';
 import 'package:flutter_base_bloc_app/models/character_model.dart';
 import 'package:flutter_base_bloc_app/services/api_service.dart';
 import 'package:flutter_base_bloc_app/services/common_service.dart';
@@ -13,19 +10,34 @@ class CharacterService {
 
   // Phương thức để lấy danh sách User từ api
 
-  Future<BaseResponse> getCharacters() async {
+  Future<Character> getCharacters() async {
     try {
       // Thực hiện yêu cầu get đến endpoint /users
       Response response = await api.get(CommonService.character);
-      Map<String, dynamic> jsonData = response.data; 
-      BaseResponse res = BaseResponse.fromJson(jsonData);
+      Map<String, dynamic> jsonData = response.data;
+      Character res = await Character.fromJson(jsonData);
       return res;
     } catch (e) {
       // Bắt các ngoại lệ có thể xảy ra và ném lại
       if (kDebugMode) {
         print(e);
       }
-      throw e;
+      rethrow;
+    }
+  }
+  Future<Character> getFilterCharacters(String param) async {
+    try {
+
+      Response response = await api.get(CommonService.character + param);
+      Map<String, dynamic> jsonData = response.data;
+      Character res = Character.fromJson(jsonData);
+      return res;
+    } catch (e) {
+      // Bắt các ngoại lệ có thể xảy ra và ném lại
+      if (kDebugMode) {
+        print(e);
+      }
+      rethrow;
     }
   }
 

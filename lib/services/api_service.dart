@@ -1,7 +1,7 @@
-import 'dart:convert';
-import 'package:dio/dio.dart';
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 
 class ApiService {
@@ -35,7 +35,7 @@ class ApiService {
   // GET request
   Future<Response> get(String endpoint) async {
     try {
-       print("get $endpoint");
+      print("get $endpoint");
       return await _dio.get(endpoint);
     } catch (error) {
       print("error $error");

@@ -1,5 +1,22 @@
+import 'package:flutter_base_bloc_app/models/info_model.dart';
+
 class Character {
-  Character({
+  final Info info;
+  final List<Results> results;
+  Character({required this.info, required this.results});
+  factory Character.fromJson(Map<String, dynamic> json) => Character(
+        info: Info.fromJson(json["info"]),
+    results: List<Results>.from(json["results"].map((x) => Results.fromJson(x))),
+      );
+
+  Map<String, dynamic> toJson() => {
+        "info": info,
+        "results": results,
+      };
+}
+
+class Results {
+  Results({
     required this.id,
     required this.name,
     required this.status,
@@ -27,7 +44,7 @@ class Character {
   final String url;
   final DateTime created;
 
-  factory Character.fromJson(Map<String, dynamic> json) => Character(
+  factory Results.fromJson(Map<String, dynamic> json) => Results(
         id: json["id"],
         name: json["name"],
         status: json["status"],
