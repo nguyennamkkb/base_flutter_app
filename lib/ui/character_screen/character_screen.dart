@@ -51,7 +51,9 @@ class _CharacterScreenState extends State<CharacterScreen> {
       );
     } else {
       return SafeArea(
+
         child: Scaffold(
+          backgroundColor: Color(0xffF4F4F4),
             body: Padding(
           padding: EdgeInsets.only(top: 5, left: 15, right: 15, bottom: 0),
           child: SmartRefresher(
@@ -66,7 +68,7 @@ class _CharacterScreenState extends State<CharacterScreen> {
                 crossAxisCount: 2,
                 crossAxisSpacing: 16.0,
                 mainAxisSpacing: 16.0,
-                childAspectRatio: (width / 2 - 23) / 200,
+                childAspectRatio: (width / 2 - 23) / 220,
               ),
               itemCount: character.results.length,
               itemBuilder: (BuildContext context, int index) {

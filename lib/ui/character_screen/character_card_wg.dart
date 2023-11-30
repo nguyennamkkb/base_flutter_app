@@ -15,15 +15,26 @@ class CharacterCard_WG extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.black12,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.all(Radius.circular(10)),
+         color: Colors.white,
+
+
+      ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(
-            character.results[index].image,
-            width: width / 2 - 23,
-            height: 150,
-            fit: BoxFit.fill,
+          ClipRRect(
+            borderRadius: const BorderRadius.only(
+              topLeft: Radius.circular(10),
+              topRight: Radius.circular(10),
+            ),
+            child: Image.network(
+              character.results[index].image,
+              width: width / 2 - 23,
+              height: 170,
+              fit: BoxFit.fill,
+            ),
           ),
           Padding(
             padding: const EdgeInsets.only(top: 5, left: 10, right: 10),
